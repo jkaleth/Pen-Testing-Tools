@@ -2,7 +2,6 @@
 
 ## Types of Tools
 
-
 ## MITRE Attack Framework
 
 The MITRE ATT&CK framework is a widely used knowledge base and model that describes the tactics and techniques employed by attackers during different stages of a cyberattack. ATT&CK stands for "Adversarial Tactics, Techniques, and Common Knowledge."
@@ -41,6 +40,98 @@ The matrix structure of the MITRE ATT&CK framework helps security teams understa
 ## OSINT Tools
 Information gathering tools:
 
+### NMAP/ZenMap - Enumeration Tool
+Nmap, short for Network Mapper, is a powerful open-source network scanning tool used for discovering hosts and services on a computer network. It helps in assessing network security, managing service upgrade schedules, and troubleshooting network issues.
+
+Nmap works by sending packets to the target network and analyzing the responses to identify open ports, services running on those ports, the operating system of the target system, and other details about the network devices. It can be used for various purposes, including network inventory, vulnerability assessment, and security auditing.
+
+Nmap offers a wide range of features and scanning techniques, including TCP connect scans, SYN scans, UDP scans, OS detection, version detection, scripting engine for advanced tasks, and more. It's a versatile tool used by network administrators, security professionals, and ethical hackers to understand and secure networks. However, it's essential to use Nmap responsibly and with proper authorization, as scanning networks without permission may be illegal and unethical.
+
+- #### Discovery Scan
+
+    Scan all 256 IP's on a network. When used in it's default behavior it send a tcp ack packet to ports 80 and 443. It's not stealthy used in this way. 
+    ```
+    $ nmap 192.168.40.0/24
+    ```
+
+    To only do a host discovery and not a port discovery
+     
+    ```
+    $ nmap -sn 192.168.40.0/24
+    ```
+    **switches**
+    - -sL  - DNS lookup
+    - $ -PS <PortList> - uses syn pack since somenetworks block icmp from the ping command. 
+    - --scan-delay <Time> avoid IDS/IPS 
+    - -Tn - Scan Timing- Avoid IDS/IPS
+    - -SI- make scan make it look its coming from another maching/A Zombie
+    - -f or --MTU  - splits TCP header to avoid IDS/IPS and firewall
+
+- #### Port Scans - Port Scans
+    Which network services are in use on a target
+
+    **switches**
+    - -sS (TCP SYN Scan) - half open scan which sends a SYN to identify port state without sending an ACK afterwards. Sounds like denial of service butwe're not sending enough of them to make it a DDOS
+    - -sV Service detection Scan with versions
+    - -sn ping scan 
+    - -ST (TCP Connect) - Full open handshake- Sends a SYN and then an ACK. Full open scan.
+    - -sN (Null scan) sends packet with header bit set to 0
+    - -sF (FIN scan) sends an unexpected FIN packet (finishing packet)
+    - sX (Christmas scan) it lights up like a xmas tree. sends packet with FIN, PSH, and URG flags set to on. Easy way to get caught. Make sure people are paying attentions!! 
+    - -sU (UDP scan) it send UDP packet and wait for a reponse
+    - -p (port range) 
+
+    **Port States** 
+    - ***open*** - ready to accept connections
+    - ***closed*** - (RST Packet is sent)not applciation available to accept connection at this port. 
+    - ***filtered*** - can't probe port because there's for sure a firewall
+    - ***unfiltered***- it can probe but can't tell if it's open or closed. not common
+    - ***open filtered***- can't determine if it's openor filtered
+    - ***closed filtered*** - can't determineof port is closed or filtered
+
+- #### Fingerprinting - 
+    Get a list of resources on the network
+
+     **switches**
+    - -sV intensive fingerprint scan - basic versioning info
+    - -A  intensive fingerprint scan with more data
+    - -O version of the OS running
+    - -oG output in greppable format
+
+    Both do an intensive scan. 
+        - Protocols,
+        - app name,
+        - os,
+        - hostname,
+        - device type. 
+
+- #### NMAP Scripting Engine
+
+    The NSE offers a vast array of pre-written scripts designed to perform specific tasks such as vulnerability detection, service enumeration, and more. These scripts can be customized or combined to suit specific scanning needs, making Nmap more versatile and capable of performing advanced network reconnaissance.
+
+    Users can develop their own scripts using Lua, the programming language used by Nmap for scripting purposes. This allows for the creation of custom functionalities and the integration of additional tests or actions tailored to specific network security requirements.
+
+    - Search for vulnerabilties
+      ```
+      $ nmap --script=vulns 192.168.40.1 
+      ```
+    - Search for ftp specific vulnerabilities
+      ``` 
+      $ nmap -p 21 --script  *ftp-* 192.168.40.1
+      ```
+    - If you are inside local area netowrk on on wireless you can sniff internally for devices
+
+      ```
+      $ nmap --script=targets-sniffer --script-args=newtargets.targets-sniffer,targets-sniffer.timeout=60s,targets-sniffer.iface=eth0
+      ```
+- Common Ports
+    - 22 - ftp
+    - 23 - telnet (not secure) sends clear text passwords
+    - 25 - Mail default SMTP port 
+    - 139 - Windows SMB file and print defaults
+    - 445 - Windows SMB file and print defaults
+    
+
 ### Censys
 Censys is a widely used internet scanning platform that helps in discovering devices, networks, and services operating on the internet. It performs regular scans of the entire IPv4 address space, collecting data on hosts and websites. Censys gathers information such as open ports, SSL certificates, domain names, and protocols used by devices connected to the internet.
 
@@ -49,6 +140,8 @@ The platform offers a search engine that enables users to query this collected d
 Censys can be a valuable tool for understanding the internet's structure, identifying potential security risks, and improving overall network security by discovering and addressing vulnerabilities in systems and services.
 
 Censys offers its services through its official website, where users can access the platform and its features. You can visit the Censys website at [Censys ](https://censys.io/) to sign up for an account or explore the available tools and services they provide.
+
+Unlike Shodan, Censys provides information about known vulnerabilities and SSL Certificates
 
 ### Recon-ng - Kali Linux 
 Recon-ng is an open-source reconnaissance framework written in Python. It is specifically designed for information gathering, reconnaissance, and open-source intelligence gathering (OSINT). Recon-ng simplifies the process of gathering information about individuals, companies, or systems by providing a modular and extensible framework.
@@ -168,6 +261,7 @@ Some of the tools available on CentralOps.net include:
     IP Dossier: Provides information about an IP address, including geolocation, ASN (Autonomous System Number), and related domains.
 
 These tools can be helpful for network administrators, cybersecurity professionals, website owners, and individuals looking to gather information about online entities or troubleshoot network-related issues.
+
 
 
 ## Summary
