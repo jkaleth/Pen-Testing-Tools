@@ -39,10 +39,10 @@ The matrix structure of the MITRE ATT&CK framework helps security teams understa
 ## Tool Categories
 
 | Tool        | Tool Type      |Red Team    | Blue Team |
-| :---        |  :----:        |   :----:   |      ---: |
+| :---        |  :----:        |   :----:   |     ---:  |
 | Burpe Suite | Web App Scanner|      ✓     |   Title   | 
-| Metasploit  | Pentesting/exploit |  ✓     |    ✓      |
-| NMAP        | Network Scanning   |  ✓     |    ✓      |
+| Metasploit  | Pentesting/exploit |  ✓     | ✓         |
+| NMAP        | Network Scanning   |  ✓     | ✓         |
 
 ## OSINT Tools
 Information gathering tools:
