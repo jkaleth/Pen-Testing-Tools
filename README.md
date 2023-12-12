@@ -36,6 +36,13 @@ The MITRE ATT&CK framework consists of a matrix that categorizes cyber threat ta
 
 The matrix structure of the MITRE ATT&CK framework helps security teams understand the sequence of actions attackers might take during an attack, enabling better threat detection, incident response, and development of defensive strategies.
 
+## Tool Categories
+
+| Tool        | Tool Type      |Red Team    | Blue Team |
+| :---        |  :----:        |   :----:   |      ---: |
+| Burpe Suite | Web App Scanner|      ✓     |   Title   | 
+| Metasploit  | Pentesting/exploit |  ✓     |    ✓      |
+| NMAP        | Network Scanning   |  ✓     |    ✓      |
 
 ## OSINT Tools
 Information gathering tools:
@@ -46,6 +53,8 @@ Nmap, short for Network Mapper, is a powerful open-source network scanning tool 
 Nmap works by sending packets to the target network and analyzing the responses to identify open ports, services running on those ports, the operating system of the target system, and other details about the network devices. It can be used for various purposes, including network inventory, vulnerability assessment, and security auditing.
 
 Nmap offers a wide range of features and scanning techniques, including TCP connect scans, SYN scans, UDP scans, OS detection, version detection, scripting engine for advanced tasks, and more. It's a versatile tool used by network administrators, security professionals, and ethical hackers to understand and secure networks. However, it's essential to use Nmap responsibly and with proper authorization, as scanning networks without permission may be illegal and unethical.
+
+Nmap can be used by red teams to scan and identify vulnerabilities in a network that they can potentially exploit during simulated attacks. Conversely, blue teams can use Nmap to conduct regular network scans to identify vulnerabilities and strengthen defenses by patching or addressing those vulnerabilities before attackers can exploit them.
 
 - #### Discovery Scan
 
@@ -266,11 +275,3 @@ These tools can be helpful for network administrators, cybersecurity professiona
 
 ## Summary
 
-
-## Markdow Code Example
-
-### Tables
-| Red Team    | Blue Team   | Test Text     |
-| :---        |    :----:   |          ---: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
