@@ -43,6 +43,7 @@ The matrix structure of the MITRE ATT&CK framework helps security teams understa
 | Burpe Suite | Web App Scanner|      ✓     |   Title   | 
 | Metasploit  | Pentesting/exploit |  ✓     | ✓         |
 | NMAP        | Network Scanning   |  ✓     | ✓         |
+| Social Engineer Toolkit - Kali Linux  | Pentesting/Exploit | ✓ | ✓
 
 ## OSINT Tools
 Information gathering tools:
