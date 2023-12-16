@@ -48,7 +48,7 @@ $ brew install hydra
 
 **Step 2-** Download a wordlist. For this example we're going to use rockyou.txt, which is also available in Kali Linux. 
 
-Download username and password wordlists: Link to Wordlists- https://
+[Rockyou.txt wordlist download](wordlists/rockyou.txt)
 
 **USE CASE**
 You've forgotten the password to your internet router and are going to brute force in to get the password. A router reset will also provide a method of password recovery but we're up for a bit of pentesting adventure today so we're going to use Hydra. 
@@ -60,9 +60,12 @@ You've forgotten the password to your internet router and are going to brute for
 **Step 2-** - Navigate to the website and attempt to login with any credential 
 
 **Step 3-** in Firefox go to Devloper Tools to find out which http method is being used. In this case its' http-
+
 ```
-$hydra 
+In Firefox go to Tools > Browser Tools > Web Developer Tool
 ```
+[Firefox Dev Tools Image ](images/Hydra_Image1_Login.png)
+
 
 ##
 
