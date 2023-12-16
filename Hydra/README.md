@@ -41,8 +41,27 @@ This command will display the version of Homebrew that has been installed on you
 
 **Install Hydra**
 
+**Step 1-** Installation
 ```
 $ brew install hydra
+```
+
+**Step 2-** Download a wordlist. For this example we're going to use rockyou.txt, which is also available in Kali Linux. 
+
+Download username and password wordlists: Link to Wordlists- https://
+
+**USE CASE**
+You've forgotten the password to your internet router and are going to brute force in to get the password. A router reset will also provide a method of password recovery but we're up for a bit of pentesting adventure today so we're going to use Hydra. 
+
+**Note-** These steps will only work for a router using an unsecure wireless protocal WPA on an insecure website running http. 
+
+**Step 1-** - you need to determine the ip and login page of the dashboard for your router. In this case its 192.168.
+
+**Step 2-** - Navigate to the website and attempt to login with any credential 
+
+**Step 3-** in Firefox go to Devloper Tools to find out which http method is being used. In this case its' http-
+```
+$hydra 
 ```
 
 ##
