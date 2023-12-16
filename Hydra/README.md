@@ -64,7 +64,7 @@ You've forgotten the password to your internet router and are going to brute for
 ```
 In Firefox go to Tools > Browser Tools > Web Developer Tool
 ```
-[Firefox Dev Tools Image ](images/Hydra_Image1_Login.png)
+![Firefox Dev Tools Image ](images/Hydra_Image1_Login.png)
 
 
 ##
