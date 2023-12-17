@@ -57,17 +57,28 @@ You've forgotten the password to your internet router and are going to brute for
 
 **Step 1-** - you need to determine the ip and login page of the dashboard for your router. In this case its 192.168.
 
-**Step 2-** - Navigate to the website and attempt to login with any credential 
+**Step 2** - Get login page
 
-**Step 3-** in Firefox go to Devloper Tools to find out which http method is being used. In this case its' http-
+Navigate to the dashboard page and try to login with any credential.
 
 ```
-In Firefox go to Tools > Browser Tools > Web Developer Tool
+In Firefox go to Tools > Browser Tools > Web Developer Tool > Network
+```
+In the Referrer section of the Header loook for the login page. In this case it's: webpages/login.html
+
+**Step 3-** 
+```
+In Firefox go to Tools > Browser Tools > Web Developer Tool > Network
 ```
 ![Firefox Dev Tools Image ](images/Hydra_Image1_Login.png)
 
+**Step 4**- 
+Click Edit Resend
 
-##
+**Step 5** - get post method. In this case it's http-post-form. Then run the command below
+```
+hydra -l admin -P /Users/jkaleth71/Downloads/rockyou.txt -f 192.168.0.1 http-post-form "/webpages/login.html :username=admin&password=^PASS^:Invalid Password\n"
+```
 
 ## Tool Categories
 
