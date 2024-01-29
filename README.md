@@ -239,6 +239,8 @@ It's often used in penetration testing and reconnaissance phases to collect info
 
 To use theHarvester in Kali Linux, you can open a terminal and type:
 
+#### Commands
+
 ```bash
 theharvester -d domain.com -l 100 -b all
 ```
@@ -246,6 +248,16 @@ theharvester -d domain.com -l 100 -b all
 Replace `domain.com` with the domain you want to search for. `-l 100` indicates you want to limit the results to 100, and `-b all` specifies to use all available data sources.
 
 Remember, when using tools like theHarvester or conducting any security testing, ensure that you have proper authorization and legal permission to perform these actions against the target domain or network. Unauthorized use could be illegal and against ethical standards.
+
+Type theHarvester -d comptia.org -b google -l 5 -f Desktop/results.html to limit the results and store the file on your Desktop:
+
+```theHarvester -d comptia.org -b google -l 5 -f Desktop/results.html```
+
+```
+# theHarvester -d comptia.org -b google -l 5 -f Desktop/results.html
+```
+
+theHarvester runs as before, but now goes through a reporting function and outputs the results to .html and .xml files which can be found on your Desktop.
 
 ### Maltego
 Maltego is a widely used and powerful data visualization and link analysis tool used in the field of cybersecurity, threat intelligence, and digital forensics. It provides a platform for visualizing and correlating complex information gathered from various sources on the internet.
